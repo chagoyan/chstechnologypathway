@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHS Technology Pathway Hub</title>
+<meta name="description" content="Course outlines, student labs and teacher tools for the Coalinga High School CTE Technology Pathway.">
+<meta name="theme-color" content="#E8391A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Teko:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8391A;          /* flyer orange-red */
+  --btn:#F04A22;
+  --char:#1C1C1C;         /* flyer charcoal */
+  --char2:#262626;
+  --stripe:#232323;
+  --line:#3A3835;
+  --ink:#F4F1EC;
+  --muted:#BDB8B0;
+  --gray:#8C8C8C;
+  --on-red:#0D0D0D;
+  --head:"Teko","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:17px/1.6 var(--body);
+  background:repeating-linear-gradient(90deg,var(--char) 0 44px,var(--stripe) 44px 88px)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.015em;font-weight:700;margin:0;line-height:1.02}
+
+/* chevron motif from the flyer */
+.chevrons{display:block;height:24px;width:150px;margin-top:18px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24'%3E%3Cpath d='M4 3l9 9-9 9' fill='none' stroke='%23E8391A' stroke-width='4.5'/%3E%3C/svg%3E") repeat-x}
+.chevrons.dark{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24'%3E%3Cpath d='M4 3l9 9-9 9' fill='none' stroke='%230D0D0D' stroke-width='4.5'/%3E%3C/svg%3E")}
+.chev{display:inline-block;width:11px;height:11px;border-top:3px solid var(--red);border-right:3px solid var(--red);transform:rotate(45deg);margin-left:4px;position:relative;top:-1px}
+.graybar{display:block;height:9px;width:130px;background:var(--gray);margin-bottom:14px}
+
+/* HERO: three flyer panels */
+.hero{display:grid;grid-template-columns:1fr;border-bottom:0}
+@media(min-width:760px){.hero{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.hero{grid-template-columns:1.15fr 1fr 1fr}}
+.panel-dark,.panel-red{padding:36px clamp(20px,3.5vw,44px)}
+.panel-dark{background:repeating-linear-gradient(90deg,#1F1F1F 0 40px,#272727 40px 80px)}
+.panel-red{background:var(--red);color:var(--on-red)}
+.hero .brand{display:flex;flex-direction:column;gap:18px}
+.hero .brand img{width:150px;height:150px;border-radius:50%}
+.eyebrow{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--ink)}
+.hero h1{color:var(--red);font-size:clamp(2.8rem,6vw,4.4rem)}
+.tagline{font-family:var(--head);color:#fff;font-size:clamp(2rem,4vw,2.9rem);text-transform:none;line-height:1.05;font-weight:700;margin:0 0 14px}
+.panel-red p{margin:0 0 20px;font-weight:500;max-width:34ch}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--on-red);color:#fff;border:2px solid var(--on-red);border-radius:4px;padding:10px 18px;font:700 .92rem var(--body);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#fff;color:var(--on-red);border-color:#fff}
+.btn.ghost{background:transparent;color:var(--on-red)}
+.btn.ghost:hover{background:var(--on-red);color:#fff;border-color:var(--on-red)}
+.btn.orange{background:var(--btn);border-color:var(--btn);color:var(--on-red)}
+.btn.orange:hover{background:#fff;border-color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;align-content:center;height:100%}
+.stat{padding:10px 0;border-bottom:1px solid var(--line)}
+.stat b{display:block;font:700 3.4rem/1 var(--head);color:var(--red)}
+.stat span{font-size:.92rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+
+/* ORANGE TOOLBAR BAND */
+.band{background:var(--red);color:var(--on-red);padding:22px 0;border-top:6px solid #0D0D0D}
+.toolbar{display:grid;gap:14px}
+@media(min-width:760px){.toolbar{grid-template-columns:1.1fr 1fr}}
+.band label{display:block;font:700 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+select,input[type=search]{width:100%;padding:11px 12px;border:2px solid #0D0D0D;border-radius:4px;background:#161616;color:#fff;font:inherit}
+.row{display:flex;gap:8px}
+.band :focus-visible{outline:3px solid #fff;outline-offset:2px}
+:focus-visible{outline:3px solid var(--btn);outline-offset:2px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+.chip{border:2px solid var(--line);background:rgba(0,0,0,.35);color:var(--ink);border-radius:4px;padding:7px 14px;font:600 .88rem var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.chip:hover{border-color:var(--red)}
+.chip[aria-pressed="true"]{background:var(--btn);border-color:var(--btn);color:var(--on-red)}
+
+section{margin:56px 0}
+section h2{font-size:clamp(2.2rem,5vw,3.2rem);color:var(--red);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+section h2 small{font:500 .95rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+section>p.lead{margin:6px 0 22px;color:var(--ink);max-width:68ch;opacity:.92}
+section>p.lead a{color:var(--btn);font-weight:700}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:10px;background:rgba(18,18,18,.92);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:4px;padding:18px;text-decoration:none;transition:transform .12s ease,background .12s}
+.card:hover{transform:translateY(-3px);background:#101010;border-color:var(--red)}
+.card h3{font-size:1.7rem;color:var(--red)}
+.card p{margin:0;color:var(--ink);font-size:.95rem;flex:1;opacity:.9}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:#34322F;color:var(--ink)}
+.badge.teacher{background:var(--btn);color:var(--on-red)}
+.badge.student{background:#fff;color:var(--on-red)}
+.badge.live{background:#1E4A2B;color:#9BE6B1}
+.badge.pilot{background:#4A3308;color:#FFCB7A}
+.badge.signin{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 7px}
+.go{font-weight:700;color:#fff;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase}
+.note{margin-top:14px;padding:12px 16px;background:rgba(0,0,0,.45);border-left:5px solid var(--gray);font-size:.92rem;color:var(--muted)}
+.outline-group{margin-bottom:22px}
+.outline-group h3{font:700 1.35rem var(--head);color:var(--muted);letter-spacing:.08em;margin-bottom:10px}
+
+/* flyer images */
+.flyer{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.flyer a{display:block;background:#0f0f0f;border:1px solid var(--line);border-radius:4px;padding:8px}
+.flyer a:hover{border-color:var(--red)}
+.flyer img{display:block;width:100%;height:auto}
+
+/* ORANGE PANEL: pathway evolution */
+.red-section{background:var(--red);color:var(--on-red);margin:56px 0 0;padding:44px 0 50px}
+.red-section h2{color:#fff}
+.timeline{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:20px}
+.era{background:#0D0D0D;color:var(--ink);border-radius:4px;padding:18px 20px}
+.era b{font:700 1.15rem var(--head);color:var(--red);letter-spacing:.08em}
+.era h3{font-size:1.9rem;color:#fff;margin:4px 0 6px}
+.era p{margin:0;color:var(--muted);font-size:.95rem}
+
+.empty{padding:28px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:4px;margin:30px 0}
+footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;color:var(--muted);font-size:.92rem}
+footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.card{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="panel-dark">
+    <div class="brand">
+      <span class="graybar" aria-hidden="true"></span>
+      <img src="logo.png" alt="CHS Technology Pathway logo">
+      <div>
+        <div class="eyebrow">Coalinga High School &middot; ROP / CTE</div>
+        <h1>CHS Technology Pathway</h1>
+      </div>
+    </div>
+  </div>
+  <div class="panel-red">
+    <p class="tagline">Upgrading the world one student at a time.</p>
+    <p>Every course outline, student lab and teacher tool in one place.</p>
+    <div class="hero-actions">
+      <a class="btn" href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Pathway flyer</a>
+      <a class="btn ghost" href="#teacher">Teacher tools</a>
+      <a class="btn ghost" href="#labs">Student labs</a>
+    </div>
+    <span class="chevrons dark" aria-hidden="true"></span>
+  </div>
+  <div class="panel-dark">
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="wrap">
+    <div class="toolbar">
+      <div>
+        <label for="quick">Quick launch</label>
+        <div class="row">
+          <select id="quick"><option value="">Choose a tool, game or syllabus&hellip;</option></select>
+          <button class="btn orange" id="quickGo" type="button">Open</button>
+        </div>
+      </div>
+      <div>
+        <label for="search">Search</label>
+        <input id="search" type="search" placeholder="Try &ldquo;typing&rdquo;, &ldquo;git&rdquo;, &ldquo;seating&rdquo;&hellip;" autocomplete="off">
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+
+  <section id="teacher">
+    <span class="graybar" aria-hidden="true"></span>
+    <h2>Teacher Tools <small id="teacherCount"></small></h2>
+    <p class="lead">A suite of apps for running a classroom. Most use your school Google account to sign in, and none of them put student data on this page.</p>
+    <div class="grid" id="teacherGrid"></div>
+    <div class="note">Tools are separate apps on their own domains. Sign in with your school Google account on each one.</div>
+  </section>
+
+  <section id="labs">
+    <span class="graybar" aria-hidden="true"></span>
+    <h2>Student Labs &amp; Games <small id="labCount"></small></h2>
+    <p class="lead">Interactive practice for typing, the command line, file paths, Git and web development. Labs are listed in the order students use them.</p>
+    <div class="grid" id="labGrid"></div>
+  </section>
+
+  <section id="outlines">
+    <span class="graybar" aria-hidden="true"></span>
+    <h2>Course Outlines</h2>
+    <p class="lead">Syllabi organized by school year and status.</p>
+    <div id="outlineGroups"></div>
+  </section>
+
+  <section id="flyer">
+    <span class="graybar" aria-hidden="true"></span>
+    <h2>Pathway Flyer</h2>
+    <p class="lead">Learn about the Technology Pathway, its two courses, and our Career Skills Challenge results. <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Open or download the PDF</a></p>
+    <div class="flyer">
+      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-1.jpg" alt="CHS Technology Pathway flyer, page 1: Career Technical Education, instructor philosophy, and contact information" loading="lazy"></a>
+      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-2.jpg" alt="CHS Technology Pathway flyer, page 2: Web Page Design and Web Application Development course descriptions and Career Skills Challenge competition results" loading="lazy"></a>
+    </div>
+  </section>
+
+  <div class="empty" id="empty" hidden>Nothing matches that search. Try a different word or clear the filter.</div>
+</main>
+
+<section id="evolution" class="red-section">
+  <div class="wrap">
+    <h2>Pathway Evolution</h2>
+    <div class="timeline">
+      <div class="era"><b>Original</b><h3>Three courses</h3><p>Intro to Computer Science, Web Page Design and Web Application Development.</p></div>
+      <div class="era"><b>2024&ndash;2025</b><h3>Two courses</h3><p>Consolidated to Web Page Design and Web Application Development, with foundational CS concepts folded in.</p></div>
+      <div class="era"><b>2025&ndash;2026</b><h3>Labs and tools</h3><p>Adds interactive labs and games for typing, terminal, Git and web development, plus a growing suite of teacher tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>CHS Technology Pathway</b>
+    Coalinga High School &middot; Built by Manuel Chagoyan
+    <span class="chevrons" aria-hidden="true"></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var TOOLS = [
+    {n:"GCDash", u:"https://gcdash.netlify.app/", d:"Google Classroom dashboard for building course outlines: pull assignments and materials, reorder, export and print guides for next year.", c:"Planning & Grading", tags:["outlines","print","export"], st:"Live", si:true},
+    {n:"GCSeat", u:"https://gcseat.netlify.app/", d:"Seating charts built from your Classroom rosters, with room layouts, attendance marks and grade color-coding.", c:"Classroom Management", tags:["seating","attendance","grades"], st:"Pilot", si:true},
+    {n:"GCMonitor", u:"https://gcmonitor.netlify.app/", d:"Track student progress across a class and send missing-assignment emails straight from the roster.", c:"Classroom Management", tags:["progress","missing work","email"], st:"Live", si:true},
+    {n:"N308Pulse", u:"https://n308pulse.netlify.app/index.html", d:"Live classroom signals. Students tap Need Help, Need More Time or Ready while you watch a real-time dashboard.", c:"Classroom Management", tags:["live","signals","Classroom"], st:"Live", si:true},
+    {n:"GCType", u:"https://gctype.netlify.app/", d:"Auto-grades Typing.com assignments in Google Classroom using one clear rule. CSVs are processed in your browser.", c:"Planning & Grading", tags:["typing","grading","CSV"], st:"Live", si:true},
+    {n:"CHS Bell Tracker", u:"https://chsbt.netlify.app/", d:"Today's bell schedule with a live countdown and a cleanup alarm two minutes before each bell.", c:"School Operations", tags:["schedule","alarm","countdown"], st:"Live", si:false}
+  ];
+  var LABS = [
+    {n:"Typing Quest", u:"https://typingquest.lovable.app", d:"Skill-based keyboard levels that build accuracy.", c:"Keyboarding", tags:["levels","accuracy"]},
+    {n:"Typing Exploration", u:"https://typingexploration.lovable.app", d:"Reach mechanics from home row to bottom row, with finger placement.", c:"Keyboarding", tags:["finger placement","reaches"]},
+    {n:"Typing Voyage", u:"https://typingvoyage.lovable.app", d:"Arcade-style space combat powered by your typing.", c:"Keyboarding", tags:["arcade","space"]},
+    {n:"Typing Conquest", u:"https://typingconquest.lovable.app", d:"Capitalization and Shift-key practice on a Mars mission.", c:"Keyboarding", tags:["shift key","capitals"]},
+    {n:"Typing Quest 2", u:"https://typingquest2.lovable.app", d:"Home row and progressive touch-typing mastery.", c:"Keyboarding", tags:["home row","levels"]},
+    {n:"Typing Race Arena", u:"https://typingracearena.lovable.app", d:"Real-time multiplayer street-racing typing competitions.", c:"Keyboarding", tags:["multiplayer","speed","WPM"]},
+    {n:"Terminal Quest Lite", u:"https://terminal-quest-lite.lovable.app", d:"Beginner command-line navigation and file manipulation.", c:"Terminal & CLI", tags:["cd","ls","beginner"]},
+    {n:"Terminal Quest – Advanced", u:"https://shellquest.lovable.app", d:"Interactive terminal challenges at an advanced level.", c:"Terminal & CLI", tags:["shell","advanced"]},
+    {n:"Terminal Forensics", u:"https://terminalforensics.lovable.app", d:"Command-line file and folder navigation challenges.", c:"Terminal & CLI", tags:["forensics","navigation"]},
+    {n:"Terminal2047", u:"https://terminal2047.lovable.app", d:"A cyber workstation network simulation.", c:"Terminal & CLI", tags:["simulation","network"]},
+    {n:"Terminal2047 Containment", u:"https://terminal2047containment.lovable.app", d:"Investigate a compromised network node.", c:"Terminal & CLI", tags:["investigation","security"]},
+    {n:"Path Explorer", u:"https://pathrout404.lovable.app", d:"Relative vs. absolute file paths and directory trees.", c:"File Systems & Git", tags:["paths","directories"]},
+    {n:"CHS Space Explorer", u:"https://chsspaceexplorer.lovable.app", d:"A spaceflight arcade challenge.", c:"File Systems & Git", tags:["arcade","space"]},
+    {n:"CHS Space Adventure", u:"https://chsspaceadventure.lovable.app", d:"Learn Git version control through mission progression.", c:"File Systems & Git", tags:["git","missions"]},
+    {n:"Pawsitive Pet Portal", u:"https://petstorechs.lovable.app", d:"Capstone web development demo built with HTML and CSS.", c:"Web Development", tags:["HTML","CSS","capstone"]}
+  ];
+  var OUTLINES = [
+    {g:"Active · 2025–2026", items:[
+      {n:"WPD Syllabus", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Active"},
+      {n:"WAD Syllabus", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Active"}]},
+    {g:"Previous · 2024–2025", items:[
+      {n:"WPD Web Page Design", u:"https://courseoutlines.netlify.app/wpd20242025", d:"2024–2025 outline", s:"Previous"},
+      {n:"WAD Web Application Development", u:"https://courseoutlines.netlify.app/wad20242025", d:"2024–2025 outline", s:"Previous"}]},
+    {g:"Archive", items:[
+      {n:"ICS Intro to Computer Science", u:"https://courseoutlines.netlify.app/ics20242025", d:"2024–2025 outline", s:"Archive"}]}
+  ];
+
+  var CATS = ["All","Planning & Grading","Classroom Management","School Operations","Keyboarding","Terminal & CLI","File Systems & Git","Web Development"];
+  var state = {cat:"All", q:""};
+  var $ = function(id){return document.getElementById(id)};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]})}
+
+  var outlineCount = OUTLINES.reduce(function(a,g){return a+g.items.length},0);
+  $("stats").innerHTML =
+    [[LABS.length,"Interactive labs"],[TOOLS.length,"Teacher tools"],[2,"Active courses"],[outlineCount,"Course outlines"]]
+    .map(function(s){return '<div class="stat"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join("");
+
+  // Quick launch
+  var sel = $("quick");
+  function addGroup(label, items){
+    var og = document.createElement("optgroup"); og.label = label;
+    items.forEach(function(i){var o=document.createElement("option");o.value=i.u;o.textContent=i.n;og.appendChild(o)});
+    sel.appendChild(og);
+  }
+  addGroup("Teacher Tools", TOOLS);
+  addGroup("Student Labs & Games", LABS);
+  addGroup("Pathway Info", [{n:"Pathway Flyer (PDF)", u:"CHS-Technology-Pathway-Flyer.pdf"}]);
+  OUTLINES.forEach(function(g){addGroup("Outlines – "+g.g, g.items)});
+  $("quickGo").addEventListener("click", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); });
+  sel.addEventListener("change", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); sel.selectedIndex = 0; });
+
+  // Chips
+  var chipBox = $("chips");
+  CATS.forEach(function(c){
+    var b = document.createElement("button");
+    b.type="button"; b.className="chip"; b.textContent=c; b.setAttribute("aria-pressed", c==="All");
+    b.addEventListener("click", function(){ state.cat=c; [].forEach.call(chipBox.children,function(x){x.setAttribute("aria-pressed", x===b)}); render(); });
+    chipBox.appendChild(b);
+  });
+  $("search").addEventListener("input", function(e){ state.q = e.target.value.trim().toLowerCase(); render(); });
+
+  function match(i){
+    if(state.cat!=="All" && i.c!==state.cat) return false;
+    if(!state.q) return true;
+    return (i.n+" "+i.d+" "+i.c+" "+(i.tags||[]).join(" ")).toLowerCase().indexOf(state.q)>-1;
+  }
+  function card(i, audience){
+    var badges = '<span class="badge '+audience+'">'+(audience==="teacher"?"Teacher":"Student")+'</span>';
+    if(audience==="teacher"){
+      badges += '<span class="badge '+(i.st==="Live"?"live":"pilot")+'">'+esc(i.st)+'</span>';
+      if(i.si) badges += '<span class="badge signin">Google sign-in</span>';
+    }
+    badges += '<span class="badge">'+esc(i.c)+'</span>';
+    return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener">'
+      + '<div class="meta">'+badges+'</div>'
+      + '<h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p>'
+      + '<div class="tags">'+(i.tags||[]).map(function(t){return '<span>'+esc(t)+'</span>'}).join("")+'</div>'
+      + '<span class="go">Launch <i class="chev"></i></span></a>';
+  }
+  function render(){
+    var t = TOOLS.filter(match), l = LABS.filter(match);
+    $("teacherGrid").innerHTML = t.map(function(i){return card(i,"teacher")}).join("");
+    $("labGrid").innerHTML = l.map(function(i){return card(i,"student")}).join("");
+    $("teacherCount").textContent = t.length+" of "+TOOLS.length;
+    $("labCount").textContent = l.length+" of "+LABS.length;
+    $("teacher").hidden = !t.length;
+    $("labs").hidden = !l.length;
+    var showOutlines = state.cat==="All";
+    var og = OUTLINES.map(function(g){
+      var items = g.items.filter(function(i){return !state.q || (i.n+" "+i.d+" "+g.g).toLowerCase().indexOf(state.q)>-1});
+      if(!items.length) return "";
+      return '<div class="outline-group"><h3>'+esc(g.g)+'</h3><div class="grid">'
+        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open syllabus <i class="chev"></i></span></a>'}).join("")
+        + '</div></div>';
+    }).join("");
+    $("outlineGroups").innerHTML = og;
+    $("outlines").hidden = !showOutlines || !og;
+    $("evolution").hidden = state.cat!=="All" || !!state.q;
+    $("flyer").hidden = state.cat!=="All" || !!state.q;
+    $("empty").hidden = !!(t.length || l.length || (showOutlines && og));
+  }
+  render();
+})();
+</script>
+</body>
+</html>
