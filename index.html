@@ -268,9 +268,12 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     {n:"Pawsitive Pet Portal", u:"https://petstorechs.lovable.app", d:"Capstone web development demo built with HTML and CSS.", c:"Web Development", tags:["HTML","CSS","capstone"]}
   ];
   var OUTLINES = [
-    {g:"Active · 2025–2026", items:[
-      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Active"},
-      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Active"}]},
+    {g:"Active · 2026–2027", items:[
+      {n:"WPD Course Outline", u:"WPD-Course-Outline-2026-2027.pdf", d:"Web Page Design", s:"Working Draft"},
+      {n:"WAD Course Outline", u:"WAD-Course-Outline-2026-2027.pdf", d:"Web Application Development", s:"Working Draft"}]},
+    {g:"Previous · 2025–2026", items:[
+      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Previous"},
+      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Previous"}]},
     {g:"Previous · 2024–2025", items:[
       {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20242025", d:"Web Page Design", s:"Previous"},
       {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20242025", d:"Web Application Development", s:"Previous"}]},
@@ -343,7 +346,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       var items = g.items.filter(function(i){return !state.q || (i.n+" "+i.d+" "+g.g).toLowerCase().indexOf(state.q)>-1});
       if(!items.length) return "";
       return '<div class="outline-group"><h3>'+esc(g.g)+'</h3><div class="grid">'
-        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>'}).join("")
+        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"||i.s==="Working Draft"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>'}).join("")
         + '</div></div>';
     }).join("");
     $("outlineGroups").innerHTML = og;
