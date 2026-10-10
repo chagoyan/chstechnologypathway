@@ -60,6 +60,9 @@ h1,h2,h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.015em;
 .btn:hover{background:#fff;color:var(--on-red);border-color:#fff}
 .btn.ghost{background:transparent;color:var(--on-red)}
 .btn svg{vertical-align:-3px;margin-right:8px}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.orange:disabled:hover{background:var(--btn);border-color:var(--btn);color:var(--on-red)}
+.band .hint{margin:6px 0 0;font-size:.8rem;font-weight:500}
 .btn.ghost:hover{background:var(--on-red);color:#fff;border-color:var(--on-red)}
 .btn.orange{background:var(--btn);border-color:var(--btn);color:var(--on-red)}
 .btn.orange:hover{background:#fff;border-color:#fff}
@@ -185,8 +188,9 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
         </div>
       </div>
       <div>
-        <label for="search">Search</label>
-        <input id="search" type="search" placeholder="Try &ldquo;typing&rdquo;, &ldquo;git&rdquo;, &ldquo;seating&rdquo;&hellip;" autocomplete="off">
+        <label for="search">Search tools, labs &amp; outlines</label>
+        <input id="search" type="search" placeholder="Try &ldquo;typing&rdquo;, &ldquo;git&rdquo;, &ldquo;seating&rdquo;&hellip;" autocomplete="off" aria-describedby="searchHint">
+        <p class="hint" id="searchHint">Standards have their own search in the Standards section.</p>
       </div>
     </div>
   </div>
@@ -195,6 +199,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 <main class="wrap">
 
   <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+  <p class="note" id="filterNote" hidden>While a search or filter is on, the flyer, standards, and timeline are hidden. Clear it to bring them back. The standards have their own search inside the Standards section.</p>
 
   <section id="teacher">
     <span class="graybar" aria-hidden="true"></span>
@@ -241,6 +246,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       <div class="era"><b>Original</b><h3>Three courses</h3><p>Intro to Computer Science, Web Page Design and Web Application Development.</p></div>
       <div class="era"><b>2024&ndash;2025</b><h3>Two courses</h3><p>Consolidated to Web Page Design and Web Application Development, with foundational CS concepts folded in.</p></div>
       <div class="era"><b>2025&ndash;2026</b><h3>Labs and tools</h3><p>Adds interactive labs and games for typing, terminal, Git and web development, plus a growing suite of teacher tools.</p></div>
+      <div class="era"><b>2026&ndash;2027</b><h3>JavaScript and AI</h3><p>Web Application Development returns to foundational JavaScript and application development, while AI-assisted development and responsible AI use become part of both courses.</p></div>
     </div>
   </div>
 </section>
@@ -315,8 +321,10 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   addGroup("Student Labs & Games", LABS);
   addGroup("Pathway Info", [{n:"Syllabus 2026–2027 (PDF)", u:"CHS-Technology-Pathway-Syllabus-2026-2027.pdf"},{n:"Pathway Flyer (PDF)", u:"CHS-Technology-Pathway-Flyer.pdf"}]);
   OUTLINES.forEach(function(g){addGroup("Outlines – "+g.g, g.items)});
-  $("quickGo").addEventListener("click", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); });
-  sel.addEventListener("change", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); sel.selectedIndex = 0; });
+  var quickGo = $("quickGo");
+  quickGo.disabled = true;
+  sel.addEventListener("change", function(){ quickGo.disabled = !sel.value; });
+  quickGo.addEventListener("click", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); });
 
   // Chips
   var chipBox = $("chips");
@@ -367,6 +375,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     $("evolution").hidden = state.cat!=="All" || !!state.q;
     $("flyer").hidden = state.cat!=="All" || !!state.q;
     var stdSec = $("standards"); if(stdSec) stdSec.hidden = state.cat!=="All" || !!state.q;
+    $("filterNote").hidden = !(state.q || state.cat!=="All");
     $("empty").hidden = !!(t.length || l.length || (showOutlines && og));
   }
   render();

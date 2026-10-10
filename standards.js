@@ -10,6 +10,14 @@
   var $ = function(sel, el){ return (el||root).querySelector(sel); };
   function esc(s){ return String(s).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]}); }
 
+  var CDE = "https://www.cde.ca.gov/ci/ct/sf/";
+  var SOURCES = {
+    "ict-anchor":   { title: "CTE Model Curriculum Standards: Information and Communication Technologies", url: CDE+"documents/infocomtech.pdf" },
+    "ssd-pathway":  { title: "CTE Model Curriculum Standards: Information and Communication Technologies", url: CDE+"documents/infocomtech.pdf" },
+    "ame-anchor":   { title: "CTE Model Curriculum Standards: Arts, Media, and Entertainment", url: CDE+"documents/artsmedia.pdf" },
+    "dvma-pathway": { title: "CTE Model Curriculum Standards: Arts, Media, and Entertainment", url: CDE+"documents/artsmedia.pdf" }
+  };
+
   var state = { doc: 0, q: "", power: false };
 
   function counts(d){
@@ -21,7 +29,7 @@
   root.innerHTML =
     '<span class="graybar" aria-hidden="true"></span>'
   + '<h2>Standards <small>'+total+' standards in '+DOCS.length+' documents</small></h2>'
-  + '<p class="lead">The knowledge and performance standards behind the pathway. Each sector has anchor standards that apply to every pathway in it, plus its own pathway standards. <strong>Power Standards</strong> are flagged.</p>'
+  + '<p class="lead">The knowledge and performance standards behind the pathway. Each sector has anchor standards that apply to every pathway in it, plus its own pathway standards. <strong>Power Standards</strong> are priority standards selected by the instructor for this pathway; they are a local designation, not a state one.</p>'
   + '<div class="std-tabs" role="tablist" aria-label="Standards documents" id="stdTabs"></div>'
   + '<div class="std-tools">'
   +   '<div class="std-search"><label for="stdSearch">Search standards</label><input id="stdSearch" type="search" placeholder="Try &ldquo;agile&rdquo;, &ldquo;database&rdquo;, &ldquo;4.6&rdquo;&hellip;" autocomplete="off"></div>'
@@ -29,6 +37,7 @@
   +   '<div class="std-btns"><button type="button" class="chip" id="stdOpen">Expand all</button><button type="button" class="chip" id="stdClose">Collapse all</button></div>'
   + '</div>'
   + '<p class="std-summary" id="stdSummary" aria-live="polite"></p>'
+  + '<div class="std-source" id="stdSource"></div>'
   + '<div class="std-panel" id="stdPanel" role="tabpanel"></div>';
 
   // tabs
@@ -87,6 +96,11 @@
     var s = esc(d.sectorName)+' \u00b7 '+c.n+' standards in '+d.groups.length+' groups'+(c.p?' \u00b7 '+c.p+' Power Standards':'');
     if(searching || state.power) s += ' \u2014 showing '+shown+' in '+shownGroups+' groups';
     $("#stdSummary").innerHTML = s;
+    var src = SOURCES[d.id];
+    $("#stdSource").innerHTML =
+        '<p><strong>Source:</strong> California Department of Education, <a href="'+esc(src.url)+'" target="_blank" rel="noopener">'+esc(src.title)+' (PDF)</a>. Adopted by the California State Board of Education on January 16, 2013. Source checked October 10, 2026. <a href="'+CDE+'ctemcstandards.asp" target="_blank" rel="noopener">All CTE standards</a></p>'
+      + (c.p ? '<p><strong>Power Standards:</strong> priority standards selected by the instructor for this pathway. They are a local designation, not part of the state document.</p>' : '')
+      + '<p><strong>Note:</strong> California is revising its CTE standards by career cluster. This page shows the 2013 documents; see the <a href="'+CDE+'ctemcsupdate.asp" target="_blank" rel="noopener">state update page</a> for current status.</p>';
   }
 
   $("#stdSearch").addEventListener("input", function(e){ state.q = e.target.value.trim(); render(); });

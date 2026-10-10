@@ -30,3 +30,8 @@
 .std-text .badge{margin-left:6px;vertical-align:1px}
 @media(max-width:520px){.std{grid-template-columns:1fr;gap:2px}.std-intro{padding-left:18px}}
 .std-text .badge,.badge{white-space:nowrap}
+
+.std-source{margin:0 0 14px;padding:12px 16px;background:rgba(0,0,0,.45);border-left:5px solid var(--gray);font-size:.88rem;color:var(--muted)}
+.std-source p{margin:0 0 6px}.std-source p:last-child{margin:0}
+.std-source a{color:var(--btn);font-weight:700}
+.std-source strong{color:var(--ink)}
