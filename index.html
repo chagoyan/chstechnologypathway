@@ -59,6 +59,7 @@ h1,h2,h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.015em;
 .btn{display:inline-block;background:var(--on-red);color:#fff;border:2px solid var(--on-red);border-radius:4px;padding:10px 18px;font:700 .92rem var(--body);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap}
 .btn:hover{background:#fff;color:var(--on-red);border-color:#fff}
 .btn.ghost{background:transparent;color:var(--on-red)}
+.btn svg{vertical-align:-3px;margin-right:8px}
 .btn.ghost:hover{background:var(--on-red);color:#fff;border-color:var(--on-red)}
 .btn.orange{background:var(--btn);border-color:var(--btn);color:var(--on-red)}
 .btn.orange:hover{background:#fff;border-color:#fff}
@@ -127,6 +128,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.card{transition:none}html{scroll-behavior:auto}}
 </style>
+<link rel="stylesheet" href="standards.css">
 </head>
 <body>
 
@@ -145,9 +147,11 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     <p class="tagline">Upgrading the world one student at a time.</p>
     <p>Every course outline, student lab and teacher tool in one place.</p>
     <div class="hero-actions">
+      <a class="btn" href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf" download><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0l-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Syllabus 2026–2027</a>
       <a class="btn" href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Pathway flyer</a>
       <a class="btn ghost" href="#teacher">Teacher tools</a>
       <a class="btn ghost" href="#labs">Student labs</a>
+      <a class="btn ghost" href="#standards">Standards</a>
     </div>
     <span class="chevrons dark" aria-hidden="true"></span>
   </div>
@@ -162,7 +166,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       <div>
         <label for="quick">Quick launch</label>
         <div class="row">
-          <select id="quick"><option value="">Choose a tool, game or syllabus&hellip;</option></select>
+          <select id="quick"><option value="">Choose a tool, game or course outline&hellip;</option></select>
           <button class="btn orange" id="quickGo" type="button">Open</button>
         </div>
       </div>
@@ -196,14 +200,16 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   <section id="outlines">
     <span class="graybar" aria-hidden="true"></span>
     <h2>Course Outlines</h2>
-    <p class="lead">Syllabi organized by school year and status.</p>
+    <p class="lead">Course outlines organized by school year and status.</p>
     <div id="outlineGroups"></div>
   </section>
+
+  <section id="standards"></section>
 
   <section id="flyer">
     <span class="graybar" aria-hidden="true"></span>
     <h2>Pathway Flyer</h2>
-    <p class="lead">Learn about the Technology Pathway, its two courses, and our Career Skills Challenge results. <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Open or download the PDF</a></p>
+    <p class="lead">Learn about the Technology Pathway, its two courses, and our Career Skills Challenge results. <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Open or download the flyer</a> &middot; <a href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf" download>Download the 2026&ndash;2027 syllabus</a></p>
     <div class="flyer">
       <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-1.jpg" alt="CHS Technology Pathway flyer, page 1: Career Technical Education, instructor philosophy, and contact information" loading="lazy"></a>
       <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-2.jpg" alt="CHS Technology Pathway flyer, page 2: Web Page Design and Web Application Development course descriptions and Career Skills Challenge competition results" loading="lazy"></a>
@@ -261,13 +267,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   ];
   var OUTLINES = [
     {g:"Active · 2025–2026", items:[
-      {n:"WPD Syllabus", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Active"},
-      {n:"WAD Syllabus", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Active"}]},
+      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Active"},
+      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Active"}]},
     {g:"Previous · 2024–2025", items:[
-      {n:"WPD Web Page Design", u:"https://courseoutlines.netlify.app/wpd20242025", d:"2024–2025 outline", s:"Previous"},
-      {n:"WAD Web Application Development", u:"https://courseoutlines.netlify.app/wad20242025", d:"2024–2025 outline", s:"Previous"}]},
+      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20242025", d:"Web Page Design", s:"Previous"},
+      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20242025", d:"Web Application Development", s:"Previous"}]},
     {g:"Archive", items:[
-      {n:"ICS Intro to Computer Science", u:"https://courseoutlines.netlify.app/ics20242025", d:"2024–2025 outline", s:"Archive"}]}
+      {n:"ICS Course Outline", u:"https://courseoutlines.netlify.app/ics20242025", d:"Intro to Computer Science", s:"Archive"}]}
   ];
 
   var CATS = ["All","Planning & Grading","Classroom Management","School Operations","Keyboarding","Terminal & CLI","File Systems & Git","Web Development"];
@@ -289,7 +295,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   }
   addGroup("Teacher Tools", TOOLS);
   addGroup("Student Labs & Games", LABS);
-  addGroup("Pathway Info", [{n:"Pathway Flyer (PDF)", u:"CHS-Technology-Pathway-Flyer.pdf"}]);
+  addGroup("Pathway Info", [{n:"Syllabus 2026–2027 (PDF)", u:"CHS-Technology-Pathway-Syllabus-2026-2027.pdf"},{n:"Pathway Flyer (PDF)", u:"CHS-Technology-Pathway-Flyer.pdf"}]);
   OUTLINES.forEach(function(g){addGroup("Outlines – "+g.g, g.items)});
   $("quickGo").addEventListener("click", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); });
   sel.addEventListener("change", function(){ if(sel.value) window.open(sel.value,"_blank","noopener"); sel.selectedIndex = 0; });
@@ -335,17 +341,19 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       var items = g.items.filter(function(i){return !state.q || (i.n+" "+i.d+" "+g.g).toLowerCase().indexOf(state.q)>-1});
       if(!items.length) return "";
       return '<div class="outline-group"><h3>'+esc(g.g)+'</h3><div class="grid">'
-        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open syllabus <i class="chev"></i></span></a>'}).join("")
+        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>'}).join("")
         + '</div></div>';
     }).join("");
     $("outlineGroups").innerHTML = og;
     $("outlines").hidden = !showOutlines || !og;
     $("evolution").hidden = state.cat!=="All" || !!state.q;
     $("flyer").hidden = state.cat!=="All" || !!state.q;
+    var stdSec = $("standards"); if(stdSec) stdSec.hidden = state.cat!=="All" || !!state.q;
     $("empty").hidden = !!(t.length || l.length || (showOutlines && og));
   }
   render();
 })();
 </script>
+<script src="standards.js" defer></script>
 </body>
 </html>
