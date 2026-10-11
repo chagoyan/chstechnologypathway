@@ -113,6 +113,10 @@ section>p.lead a{color:var(--btn);font-weight:700}
 .go{font-weight:700;color:#fff;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase}
 .note{margin-top:14px;padding:12px 16px;background:rgba(0,0,0,.45);border-left:5px solid var(--gray);font-size:.92rem;color:var(--muted)}
 .outline-group{margin-bottom:22px}
+.card-wrap{display:flex;flex-direction:column;gap:6px}
+.card-wrap .card{flex:1}
+.pdf-link{display:block;text-align:center;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:8px 10px;background:rgba(18,18,18,.92)}
+.pdf-link:hover{border-color:var(--red);color:#fff}
 .outline-group h3{font:700 1.35rem var(--head);color:var(--muted);letter-spacing:.08em;margin-bottom:10px}
 
 /* flyer images */
@@ -292,13 +296,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       {n:"WPD Course Outline", u:"WPD-Course-Outline-2026-2027.pdf", d:"Web Page Design", s:"Working Draft"},
       {n:"WAD Course Outline", u:"WAD-Course-Outline-2026-2027.pdf", d:"Web Application Development", s:"Working Draft"}]},
     {g:"Previous · 2025–2026", items:[
-      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20252026", d:"Web Page Design", s:"Previous"},
-      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20252026", d:"Web Application Development", s:"Previous"}]},
+      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20252026", p:"WPD-Course-Outline-2025-2026.pdf", d:"Web Page Design", s:"Previous"},
+      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20252026", p:"WAD-Course-Outline-2025-2026.pdf", d:"Web Application Development", s:"Previous"}]},
     {g:"Previous · 2024–2025", items:[
-      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20242025", d:"Web Page Design", s:"Previous"},
-      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20242025", d:"Web Application Development", s:"Previous"}]},
+      {n:"WPD Course Outline", u:"https://courseoutlines.netlify.app/wpd20242025", p:"WPD-Course-Outline-2024-2025.pdf", d:"Web Page Design", s:"Previous"},
+      {n:"WAD Course Outline", u:"https://courseoutlines.netlify.app/wad20242025", p:"WAD-Course-Outline-2024-2025.pdf", d:"Web Application Development", s:"Previous"}]},
     {g:"Archive", items:[
-      {n:"ICS Course Outline", u:"https://courseoutlines.netlify.app/ics20242025", d:"Intro to Computer Science", s:"Archive"}]}
+      {n:"ICS Course Outline", u:"https://courseoutlines.netlify.app/ics20242025", p:"ICS-Course-Outline-2024-2025.pdf", d:"Intro to Computer Science", s:"Archive"}]}
   ];
 
   var CATS = ["All","Planning & Grading","Classroom Management","School Operations","Keyboarding","Terminal & CLI","File Systems & Git","Web Development"];
@@ -368,7 +372,8 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       var items = g.items.filter(function(i){return !state.q || (i.n+" "+i.d+" "+g.g).toLowerCase().indexOf(state.q)>-1});
       if(!items.length) return "";
       return '<div class="outline-group"><h3>'+esc(g.g)+'</h3><div class="grid">'
-        + items.map(function(i){return '<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"||i.s==="Working Draft"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>'}).join("")
+        + items.map(function(i){var c='<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"||i.s==="Working Draft"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>';
+          return i.p ? '<div class="card-wrap">'+c+'<a class="pdf-link" href="'+esc(i.p)+'" download>Download PDF summary</a></div>' : c}).join("")
         + '</div></div>';
     }).join("");
     $("outlineGroups").innerHTML = og;
