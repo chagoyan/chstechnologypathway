@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | CHS Technology Pathway</title>
+<meta name="description" content="Teaching philosophy, background, and Career Skills Challenge results from Mr. Chagoyan, Coalinga High School CTE Technology Pathway.">
+<meta name="theme-color" content="#E8391A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="About | CHS Technology Pathway">
+<meta property="og:image" content="https://chstechnologypathway.netlify.app/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Teko:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8391A; --btn:#F04A22; --char:#1C1C1C; --stripe:#232323; --line:#3A3835;
+  --ink:#F4F1EC; --muted:#BDB8B0; --gray:#8C8C8C; --on-red:#0D0D0D;
+  --head:"Teko","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:17px/1.6 var(--body);
+  background:repeating-linear-gradient(90deg,var(--char) 0 44px,var(--stripe) 44px 88px)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--head);text-transform:uppercase;letter-spacing:.015em;font-weight:700;margin:0;line-height:1.02}
+.chevrons{display:block;height:24px;width:150px;margin-top:18px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24'%3E%3Cpath d='M4 3l9 9-9 9' fill='none' stroke='%23E8391A' stroke-width='4.5'/%3E%3C/svg%3E") repeat-x}
+.chevrons.dark{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24'%3E%3Cpath d='M4 3l9 9-9 9' fill='none' stroke='%230D0D0D' stroke-width='4.5'/%3E%3C/svg%3E")}
+.graybar{display:block;height:9px;width:130px;background:var(--gray);margin-bottom:14px}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr}
+@media(min-width:760px){.hero{grid-template-columns:1.1fr 1fr}}
+.panel-dark,.panel-red{padding:36px clamp(20px,3.5vw,44px)}
+.panel-dark{background:repeating-linear-gradient(90deg,#1F1F1F 0 40px,#272727 40px 80px)}
+.panel-red{background:var(--red);color:var(--on-red);display:flex;flex-direction:column;justify-content:center}
+.who{display:flex;gap:26px;align-items:flex-end;flex-wrap:wrap}
+.portrait{width:210px;aspect-ratio:4/5;object-fit:cover;border-radius:4px;border:4px solid var(--red);display:block;
+  filter:grayscale(1) contrast(1.3) brightness(.97)}
+.eyebrow{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+.hero h1{color:var(--red);font-size:clamp(2.8rem,6vw,4.4rem);margin-top:6px}
+.tagline{font-family:var(--head);color:#fff;font-size:clamp(2rem,4vw,2.9rem);text-transform:none;line-height:1.05;font-weight:700;margin:0 0 14px}
+.panel-red p{margin:0 0 20px;font-weight:500;max-width:34ch}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--on-red);color:#fff;border:2px solid var(--on-red);border-radius:4px;padding:10px 18px;font:700 .92rem var(--body);letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.btn:hover{background:#fff;color:var(--on-red);border-color:#fff}
+.btn.ghost{background:transparent;color:var(--on-red)}
+.btn.ghost:hover{background:var(--on-red);color:#fff;border-color:var(--on-red)}
+:focus-visible{outline:3px solid var(--btn);outline-offset:2px}
+.panel-red :focus-visible{outline-color:#fff}
+
+section{margin:56px 0}
+section h2{font-size:clamp(2.2rem,5vw,3.2rem);color:var(--red);margin-bottom:14px}
+.cols{display:grid;gap:30px;grid-template-columns:1fr}
+@media(min-width:900px){.cols{grid-template-columns:1.15fr 1fr;align-items:start}}
+.statement{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.6;max-width:44rem;margin:0 0 18px}
+blockquote{margin:0 0 20px;padding:6px 0 6px 22px;border-left:6px solid var(--red);max-width:44rem}
+blockquote p{margin:0;font:700 clamp(1.9rem,3.6vw,2.6rem)/1.08 var(--head);text-transform:none;color:#fff}
+.body-text{max-width:44rem;margin:0 0 14px;color:var(--ink);opacity:.92}
+.cte{background:rgba(0,0,0,.45);border-left:5px solid var(--gray);padding:14px 18px;font-size:.95rem;color:var(--muted);max-width:44rem}
+.cte b{color:var(--ink)}
+.card{background:rgba(18,18,18,.92);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:4px;padding:20px}
+.card h3{font-size:1.7rem;color:var(--red);margin-bottom:8px}
+.card p{margin:0 0 12px;opacity:.92}
+.card p:last-child{margin-bottom:0}
+.careers{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.careers span{font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 8px}
+
+/* RESULTS */
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin:0 0 22px}
+.stat b{display:block;font:700 3.4rem/1 var(--head);color:var(--red)}
+.stat span{font-size:.9rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+.results{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));list-style:none;margin:0;padding:0}
+.results li{background:rgba(18,18,18,.92);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:4px;padding:12px 14px}
+.results .yr{display:block;font:700 1.35rem var(--head);color:var(--red);letter-spacing:.06em}
+.results strong{color:#fff}
+.small{font-size:.85rem;color:var(--muted);margin-top:14px}
+.contact a.mail{color:#fff;font:700 clamp(1.6rem,3.4vw,2.4rem)/1.1 var(--head);letter-spacing:.02em;text-decoration:none;border-bottom:3px solid var(--red)}
+.contact a.mail:hover{color:var(--btn)}
+
+footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;color:var(--muted);font-size:.92rem;margin-top:56px}
+footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
+footer a{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="panel-dark">
+    <div class="who">
+      <img class="portrait" src="headshot.jpg" width="210" height="262" alt="Portrait of Manuel Chagoyan">
+      <div>
+        <span class="graybar" aria-hidden="true"></span>
+        <div class="eyebrow">Technology teacher &middot; Coalinga High School</div>
+        <h1>Mr. Chagoyan</h1>
+      </div>
+    </div>
+  </div>
+  <div class="panel-red">
+    <p class="tagline">Upgrading the world one student at a time.</p>
+    <p>Teaching philosophy, background, and competition results.</p>
+    <div class="hero-actions">
+      <a class="btn" href="index.html">&larr; Back to the hub</a>
+      <a class="btn ghost" href="mailto:mchagoyan@chusd.org">Email Mr. Chagoyan</a>
+    </div>
+    <span class="chevrons dark" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="philosophy">
+  <h2>Teaching philosophy</h2>
+  <p class="statement">I believe standards should be high and students learn more by being challenged.</p>
+  <blockquote><p>&ldquo;Those who aim for the moon and fail land on top of the trees. Those who aim for the top of the trees never get off the ground.&rdquo;</p></blockquote>
+  <p class="body-text">Setting high goals takes students further. They will not always succeed, but they will be better for the effort. Balanced with each student&rsquo;s abilities, my plan is to challenge them and facilitate their success.</p>
+  <p class="body-text">This philosophy aligns with the goals of Career Technical Education, which prepares students for success in both academic and technical fields.</p>
+  <p class="cte"><b>Career Technical Education (CTE)</b> provides students of all ages with the academic and technical skills, knowledge, and training necessary to succeed in future careers and to become lifelong learners.</p>
+</section>
+
+<section id="background">
+  <div class="cols">
+    <div class="card">
+      <h3>Background</h3>
+      <p>I teach Web Page Design, Web Application Development, and Introduction to Computer Science at Coalinga High School.</p>
+      <p>Before teaching, I did most of my development work for AT&amp;T, where I created intranet websites, applications, and databases. I build the teacher tools and student labs on this site.</p>
+    </div>
+    <div class="card">
+      <h3>The Technology Pathway</h3>
+      <p>Two courses, Web Page Design and Web Application Development, prepare students for technical careers such as:</p>
+      <div class="careers"><span>Graphic Designer</span><span>Web Designer</span><span>Web Developer</span><span>Computer Programmer</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <h2>Career Skills Challenge results</h2>
+  <div class="stats">
+    <div class="stat"><b>22</b><span>Top-three finishes</span></div>
+    <div class="stat"><b>8</b><span>First-place finishes</span></div>
+  </div>
+  <ul class="results">
+    <li><span class="yr">2012-2013</span><strong>1st</strong></li>
+    <li><span class="yr">2013-2014</span><strong>1st</strong> and 2nd</li>
+    <li><span class="yr">2014-2015</span>3rd</li>
+    <li><span class="yr">2015-2016</span><strong>1st</strong>, 2nd, and 3rd</li>
+    <li><span class="yr">2016-2017</span><strong>1st</strong>, 2nd, and 3rd</li>
+    <li><span class="yr">2017-2018</span><strong>1st</strong> and 2nd</li>
+    <li><span class="yr">2018-2019</span><strong>1st</strong> and 3rd</li>
+    <li><span class="yr">2022-2023</span><strong>1st</strong> and 3rd</li>
+    <li><span class="yr">2023-2024</span>2nd and 3rd</li>
+    <li><span class="yr">2024-2025</span>3rd</li>
+    <li><span class="yr">2025-2026</span><strong>1st</strong>, 2nd, and 3rd</li>
+  </ul>
+  <p class="small">Placements are from the annual competition years listed on the Pathway flyer.</p>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p class="body-text">Questions about the Technology Pathway, the courses, or student work? Email me. Please include your name and, for students, your period.</p>
+  <a class="mail" href="mailto:mchagoyan@chusd.org">mchagoyan@chusd.org</a>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>CHS Technology Pathway</b>
+    Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="index.html">Home</a> &middot; <a href="mailto:mchagoyan@chusd.org">mchagoyan@chusd.org</a>
+    <span class="chevrons" aria-hidden="true"></span>
+  </div>
+</footer>
+
+</body>
+</html>
