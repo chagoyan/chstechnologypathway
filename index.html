@@ -136,6 +136,9 @@ section>p.lead a{color:var(--btn);font-weight:700}
 
 .empty{padding:28px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:4px;margin:30px 0}
 footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;color:var(--muted);font-size:.92rem}
+.foot-seal{display:flex;gap:18px;align-items:center}
+.seal{width:84px;height:84px;border-radius:50%;background:var(--ink);padding:4px;flex:none;display:block}
+@media(max-width:559px){.foot-seal{flex-direction:column;text-align:center}footer .chevrons{margin-left:auto;margin-right:auto}}
 footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.card{transition:none}html{scroll-behavior:auto}}
@@ -257,8 +260,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 
 <footer>
   <div class="wrap">
-    <b>CHS Technology Pathway</b>
-    Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="about.html">About</a>
+    <div class="foot-seal">
+      <img class="seal" src="chs-rop-cte-logo.png" width="84" height="84" alt="Coalinga High School ROP/CTE seal">
+      <div>
+        <b>CHS Technology Pathway</b>
+        Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="about.html">About</a>
+      </div>
+    </div>
     <span class="chevrons" aria-hidden="true"></span>
   </div>
 </footer>

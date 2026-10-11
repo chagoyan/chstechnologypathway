@@ -85,6 +85,19 @@ blockquote p{margin:0;font:700 clamp(1.9rem,3.6vw,2.6rem)/1.08 var(--head);text-
 footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;color:var(--muted);font-size:.92rem;margin-top:56px}
 footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
 footer a{color:var(--ink)}
+.logos{display:flex;gap:16px;align-items:center;margin-top:26px}
+.logos img{width:96px;height:96px;border-radius:50%;display:block}
+.seal{background:var(--ink);padding:4px;border-radius:50%}
+.foot-seal{display:flex;gap:18px;align-items:center}
+.foot-seal .seal{width:84px;height:84px;flex:none}
+@media(max-width:559px){
+  .who{flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .who .graybar{margin-left:auto;margin-right:auto}
+  .portrait{margin:0 auto}
+  .logos{justify-content:center}
+  .foot-seal{flex-direction:column;text-align:center}
+  footer .chevrons{margin-left:auto;margin-right:auto}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -99,6 +112,10 @@ footer a{color:var(--ink)}
         <div class="eyebrow">Technology teacher &middot; Coalinga High School</div>
         <h1>Mr. Chagoyan</h1>
       </div>
+    </div>
+    <div class="logos">
+      <img src="logo.png" width="96" height="96" alt="CHS Technology Pathway logo">
+      <img class="seal" src="chs-rop-cte-logo.png" width="96" height="96" alt="Coalinga High School ROP/CTE seal">
     </div>
   </div>
   <div class="panel-red">
@@ -170,8 +187,13 @@ footer a{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <b>CHS Technology Pathway</b>
-    Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="index.html">Home</a> &middot; <a href="mailto:mchagoyan@chusd.org">mchagoyan@chusd.org</a>
+    <div class="foot-seal">
+      <img class="seal" src="chs-rop-cte-logo.png" width="84" height="84" alt="Coalinga High School ROP/CTE seal">
+      <div>
+        <b>CHS Technology Pathway</b>
+        Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="index.html">Home</a> &middot; <a href="mailto:mchagoyan@chusd.org">mchagoyan@chusd.org</a>
+      </div>
+    </div>
     <span class="chevrons" aria-hidden="true"></span>
   </div>
 </footer>
