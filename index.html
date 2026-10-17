@@ -140,6 +140,20 @@ footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;co
 .seal{width:84px;height:84px;border-radius:50%;background:var(--ink);padding:4px;flex:none;display:block}
 @media(max-width:559px){.foot-seal{flex-direction:column;text-align:center}footer .chevrons{margin-left:auto;margin-right:auto}}
 footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
+
+/* TO-DO PANEL */
+.todo{width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;margin:auto;padding:0;color-scheme:dark;background:#121212;color:var(--ink);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:4px}
+.todo::backdrop{background:rgba(0,0,0,.72)}
+.todo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px 6px}
+.todo-head h2{font-size:2.3rem;color:var(--red)}
+.todo-close{flex:none;width:40px;height:40px;background:transparent;border:2px solid var(--line);border-radius:4px;color:var(--ink);font:700 1.05rem/1 var(--body);cursor:pointer}
+.todo-close:hover{border-color:var(--red)}
+.todo-body{padding:0 20px 22px}
+.todo-updated{margin:0 0 10px;font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.todo-list{margin:0;padding-left:1.7em}
+.todo-list li{padding:8px 0;border-bottom:1px solid var(--line)}
+.todo-list li::marker{color:var(--red);font-weight:700}
+.todo-msg{margin:6px 0 0;color:var(--muted)}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.card{transition:none}html{scroll-behavior:auto}}
 </style>
@@ -169,6 +183,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       <a class="btn ghost" href="#labs">Student labs</a>
       <a class="btn ghost" href="#standards">Standards</a>
       <a class="btn ghost" href="about.html">About</a>
+      <button class="btn ghost" type="button" id="todoBtn" aria-haspopup="dialog" aria-controls="todo">To-do</button>
     </div>
     <span class="chevrons dark" aria-hidden="true"></span>
   </div>
@@ -270,6 +285,14 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     <span class="chevrons" aria-hidden="true"></span>
   </div>
 </footer>
+
+<dialog class="todo" id="todo" aria-labelledby="todoTitle">
+  <div class="todo-head">
+    <h2 id="todoTitle">To-do list</h2>
+    <button class="todo-close" type="button" id="todoClose" aria-label="Close">&#10005;</button>
+  </div>
+  <div class="todo-body" id="todoBody" aria-live="polite"></div>
+</dialog>
 
 <script>
 (function(){
@@ -395,6 +418,76 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     $("empty").hidden = !!(t.length || l.length || (showOutlines && og));
   }
   render();
+})();
+</script>
+<script src="config.js"></script>
+<script>
+(function(){
+  // Live to-do list. Each update is saved as a new pathway-hub-todo.json in the
+  // public Drive folder .claude-todo; the panel shows the newest one.
+  // The Drive API key comes from config.js, which build.js writes on Netlify from
+  // the DRIVE_API_KEY environment variable. It is a browser key: it works only
+  // from chstechnologypathway.netlify.app, only for the Drive API, and can only
+  // read files that are already public.
+  var KEY = window.CONFIG && window.CONFIG.driveApiKey;
+  var FOLDER = "1AS5zsWMd1-txM_v6EBmoq8o525OLMT4e"; // .claude-todo
+  var API = "https://www.googleapis.com/drive/v3/files";
+  var dlg = document.getElementById("todo");
+  var body = document.getElementById("todoBody");
+  var req = 0;
+
+  function getJSON(url){
+    return fetch(url).then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); });
+  }
+  function msg(text){ body.innerHTML = '<p class="todo-msg"></p>'; body.firstChild.textContent = text; }
+  function when(s){
+    var d = new Date(s);
+    return isNaN(d) ? "" : d.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+  }
+
+  function show(data, modified){
+    body.textContent = "";
+    var updated = when(data.last_updated) || when(modified);
+    if(updated){
+      var p = document.createElement("p"); p.className = "todo-updated"; p.textContent = "Updated "+updated;
+      body.appendChild(p);
+    }
+    if(!data.todos.length){ body.insertAdjacentHTML("beforeend",'<p class="todo-msg">Nothing on the list right now.</p>'); return; }
+    var ol = document.createElement("ol"); ol.className = "todo-list";
+    data.todos.forEach(function(t){
+      var li = document.createElement("li");
+      li.textContent = typeof t === "string" ? t : (t && t.item) || "";
+      ol.appendChild(li);
+    });
+    body.appendChild(ol);
+  }
+
+  function load(){
+    var id = ++req;
+    if(!KEY){ msg("The to-do list isn’t set up on this copy of the site."); return; }
+    msg("Loading…");
+    var q = "'"+FOLDER+"' in parents and name = 'pathway-hub-todo.json' and trashed = false";
+    getJSON(API+"?q="+encodeURIComponent(q)+"&orderBy=modifiedTime%20desc&pageSize=1&fields=files(id,modifiedTime)&key="+KEY)
+      .then(function(list){
+        var f = list.files && list.files[0];
+        if(!f) throw new Error("No to-do file found");
+        return getJSON(API+"/"+f.id+"?alt=media&key="+KEY).then(function(data){ return {data:data, modified:f.modifiedTime}; });
+      })
+      .then(function(r){
+        if(id !== req) return;
+        if(!r.data || !Array.isArray(r.data.todos)) throw new Error("Unexpected to-do file format");
+        show(r.data, r.modified);
+      })
+      .catch(function(){
+        if(id !== req) return;
+        msg("Couldn’t load the to-do list. Close this and try again in a moment.");
+      });
+  }
+
+  document.getElementById("todoBtn").addEventListener("click", function(){ dlg.showModal(); load(); });
+  document.getElementById("todoClose").addEventListener("click", function(){ dlg.close(); });
+  // A click on the dimmed backdrop lands on the dialog element itself.
+  dlg.addEventListener("click", function(e){ if(e.target === dlg) dlg.close(); });
 })();
 </script>
 <script src="standards.js" defer></script>

@@ -1,0 +1,11 @@
+
+# ============================================================
+# Netlify Configuration — CHS Technology Pathway Hub
+# ============================================================
+
+[build]
+  # Run build script before deploying (writes config.js)
+  command = "node build.js"
+
+  # Serve files from this directory
+  publish = "."
