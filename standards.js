@@ -98,9 +98,9 @@
     $("#stdSummary").innerHTML = s;
     var src = SOURCES[d.id];
     $("#stdSource").innerHTML =
-        '<p><strong>Source:</strong> California Department of Education, <a href="'+esc(src.url)+'" target="_blank" rel="noopener">'+esc(src.title)+' (PDF)</a>. Adopted by the California State Board of Education on January 16, 2013. Source checked October 10, 2026. <a href="'+CDE+'ctemcstandards.asp" target="_blank" rel="noopener">All CTE standards</a></p>'
+        '<p><strong>Source:</strong> California Department of Education, <a href="'+esc(src.url)+'" target="_blank" rel="noopener">'+esc(src.title)+' (PDF)<span class="sr-only"> (opens in a new tab)</span></a>. Adopted by the California State Board of Education on January 16, 2013. Source checked October 10, 2026. <a href="'+CDE+'ctemcstandards.asp" target="_blank" rel="noopener">All CTE standards<span class="sr-only"> (opens in a new tab)</span></a></p>'
       + (c.p ? '<p><strong>Power Standards:</strong> priority standards selected by the instructor for this pathway. They are a local designation, not part of the state document.</p>' : '')
-      + '<p><strong>Note:</strong> California is revising its CTE standards by career cluster. This page shows the 2013 documents; see the <a href="'+CDE+'ctemcsupdate.asp" target="_blank" rel="noopener">state update page</a> for current status.</p>';
+      + '<p><strong>Note:</strong> California is revising its CTE standards by career cluster. This page shows the 2013 documents; see the <a href="'+CDE+'ctemcsupdate.asp" target="_blank" rel="noopener">state update page<span class="sr-only"> (opens in a new tab)</span></a> for current status.</p>';
   }
 
   $("#stdSearch").addEventListener("input", function(e){ state.q = e.target.value.trim(); render(); });

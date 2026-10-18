@@ -17,6 +17,7 @@
 :root{
   --red:#E8391A;          /* flyer orange-red */
   --btn:#F04A22;
+  --red-text:#FF6A45;     /* brand orange light enough for small text on dark (4.5:1) */
   --char:#1C1C1C;         /* flyer charcoal */
   --char2:#262626;
   --stripe:#232323;
@@ -96,7 +97,7 @@ section{margin:56px 0}
 section h2{font-size:clamp(2.2rem,5vw,3.2rem);color:var(--red);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 section h2 small{font:500 .95rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 section>p.lead{margin:6px 0 22px;color:var(--ink);max-width:68ch;opacity:.92}
-section>p.lead a{color:var(--btn);font-weight:700}
+section>p.lead a{color:var(--red-text);font-weight:700}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
 .card{display:flex;flex-direction:column;gap:10px;background:rgba(18,18,18,.92);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:4px;padding:18px;text-decoration:none;transition:transform .12s ease,background .12s}
 .card:hover{transform:translateY(-3px);background:#101010;border-color:var(--red)}
@@ -157,12 +158,18 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 .todo-list li{padding:8px 0;border-bottom:1px solid var(--line)}
 .todo-list li::marker{color:var(--red);font-weight:700}
 .todo-msg{margin:6px 0 0;color:var(--muted)}
+
+/* Keyboard skip link (same as Program at a Glance) and screen-reader-only text */
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--on-red);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.card{transition:none}html{scroll-behavior:auto}}
 </style>
 <link rel="stylesheet" href="standards.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hero">
   <div class="panel-dark">
@@ -195,6 +202,8 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   </div>
 </header>
 
+<main id="main">
+
 <div class="intro">
   <div class="wrap">
     <span class="graybar" aria-hidden="true"></span>
@@ -210,7 +219,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
         <label for="quick">Quick launch</label>
         <div class="row">
           <select id="quick"><option value="">Choose a tool, game or course outline&hellip;</option></select>
-          <button class="btn orange" id="quickGo" type="button">Open</button>
+          <button class="btn orange" id="quickGo" type="button">Open<span class="sr-only"> in a new tab</span></button>
         </div>
       </div>
       <div>
@@ -222,10 +231,11 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   </div>
 </div>
 
-<main class="wrap">
+<div class="wrap">
 
   <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
   <p class="note" id="filterNote" hidden>While a search or filter is on, the flyer, standards, and timeline are hidden. Clear it to bring them back. The standards have their own search inside the Standards section.</p>
+  <p class="sr-only" id="resultStatus" role="status"></p>
 
   <section id="teacher">
     <span class="graybar" aria-hidden="true"></span>
@@ -238,10 +248,10 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
   <section id="flyer">
     <span class="graybar" aria-hidden="true"></span>
     <h2>Pathway Flyer</h2>
-    <p class="lead">Learn about the Technology Pathway, its two courses, and our Career Skills Challenge results. <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Open or download the flyer</a> &middot; <a href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf" download>Download the 2026&ndash;2027 syllabus</a></p>
+    <p class="lead">Learn about the Technology Pathway, its two courses, and our Career Skills Challenge results. <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener">Open or download the flyer<span class="sr-only"> (opens in a new tab)</span></a> &middot; <a href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf" download>Download the 2026&ndash;2027 syllabus</a></p>
     <div class="flyer">
-      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-1.jpg" alt="CHS Technology Pathway flyer, page 1: Career Technical Education, instructor philosophy, and contact information" loading="lazy"></a>
-      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF)"><img src="flyer-2.jpg" alt="CHS Technology Pathway flyer, page 2: Web Page Design and Web Application Development course descriptions and Career Skills Challenge competition results" loading="lazy"></a>
+      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF, opens in a new tab)"><img src="flyer-1.jpg" alt="CHS Technology Pathway flyer, page 1: Career Technical Education, instructor philosophy, and contact information" loading="lazy"></a>
+      <a href="CHS-Technology-Pathway-Flyer.pdf" target="_blank" rel="noopener" aria-label="Open the CHS Technology Pathway flyer (PDF, opens in a new tab)"><img src="flyer-2.jpg" alt="CHS Technology Pathway flyer, page 2: Web Page Design and Web Application Development course descriptions and Career Skills Challenge competition results" loading="lazy"></a>
     </div>
   </section>
 
@@ -263,7 +273,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 
 
   <div class="empty" id="empty" hidden>Nothing matches that search. Try a different word or clear the filter.</div>
-</main>
+</div>
 
 <section id="evolution" class="red-section">
   <div class="wrap">
@@ -275,6 +285,8 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">
@@ -393,7 +405,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       + '<div class="meta">'+badges+'</div>'
       + '<h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p>'
       + '<div class="tags">'+(i.tags||[]).map(function(t){return '<span>'+esc(t)+'</span>'}).join("")+'</div>'
-      + '<span class="go">Launch <i class="chev"></i></span></a>';
+      + '<span class="go">Launch <i class="chev"></i></span><span class="sr-only"> (opens in a new tab)</span></a>';
+  }
+  // Screen readers hear the new counts once typing pauses; the first render stays quiet.
+  var statusTimer, firstRender = true;
+  function announce(text){
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(function(){ $("resultStatus").textContent = text; }, 500);
   }
   function render(){
     var t = TOOLS.filter(match), l = LABS.filter(match);
@@ -403,12 +421,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     $("labCount").textContent = l.length+" of "+LABS.length;
     $("teacher").hidden = !t.length;
     $("labs").hidden = !l.length;
-    var showOutlines = state.cat==="All";
+    var showOutlines = state.cat==="All", outlineHits = 0;
     var og = OUTLINES.map(function(g){
       var items = g.items.filter(function(i){return !state.q || (i.n+" "+i.d+" "+g.g).toLowerCase().indexOf(state.q)>-1});
+      outlineHits += items.length;
       if(!items.length) return "";
       return '<div class="outline-group"><h3>'+esc(g.g)+'</h3><div class="grid">'
-        + items.map(function(i){var c='<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"||i.s==="Working Draft"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span></a>';
+        + items.map(function(i){var c='<a class="card" href="'+esc(i.u)+'" target="_blank" rel="noopener"><div class="meta"><span class="badge '+(i.s==="Active"||i.s==="Working Draft"?"live":"")+'">'+esc(i.s)+'</span></div><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="go">Open outline <i class="chev"></i></span><span class="sr-only"> (opens in a new tab)</span></a>';
           return i.p ? '<div class="card-wrap">'+c+'<a class="pdf-link" href="'+esc(i.p)+'" download>Download PDF summary</a></div>' : c}).join("")
         + '</div></div>';
     }).join("");
@@ -419,6 +438,10 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     var stdSec = $("standards"); if(stdSec) stdSec.hidden = state.cat!=="All" || !!state.q;
     $("filterNote").hidden = !(state.q || state.cat!=="All");
     $("empty").hidden = !!(t.length || l.length || (showOutlines && og));
+    if(firstRender){ firstRender = false; return; }
+    var parts = [t.length+" of "+TOOLS.length+" teacher tools", l.length+" of "+LABS.length+" labs"];
+    if(showOutlines) parts.push(outlineHits+" course outlines");
+    announce($("empty").hidden ? "Showing "+parts.join(", ")+"." : "Nothing matches that search.");
   }
   render();
 })();

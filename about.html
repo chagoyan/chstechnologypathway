@@ -99,10 +99,14 @@ footer a{color:var(--ink)}
   .foot-seal{flex-direction:column;text-align:center}
   footer .chevrons{margin-left:auto;margin-right:auto}
 }
+/* Keyboard skip link (same as Program at a Glance) */
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--on-red);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hero">
   <div class="panel-dark">
@@ -130,7 +134,7 @@ footer a{color:var(--ink)}
   </div>
 </header>
 
-<main class="wrap">
+<main id="main" class="wrap">
 
 <section id="philosophy">
   <h2>Teaching philosophy</h2>
