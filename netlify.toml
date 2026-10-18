@@ -9,3 +9,27 @@
 
   # Serve files from this directory
   publish = "."
+
+# ------------------------------------------------------------
+# Keep this site out of search results, including PDFs
+# (the noindex meta tag only covers HTML pages)
+# ------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# ------------------------------------------------------------
+# Build files stay in the repo but are not served to visitors
+# ------------------------------------------------------------
+[[redirects]]
+  from = "/build.js"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true

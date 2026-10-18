@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program at a Glance | CHS Technology Pathway</title>
+<meta name="description" content="A one-page overview of the Coalinga High School CTE Technology Pathway: two courses, skill progression, standards alignment, and results.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#E8391A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Teko:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8391A; --btn:#F04A22; --char:#1C1C1C; --char2:#262626; --line:#3A3835;
+  --ink:#F4F1EC; --muted:#BDB8B0; --on-red:#0D0D0D;
+  --head:"Teko","Bebas Neue","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--char);color:var(--ink);font:400 1rem/1.6 var(--body)}
+h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1;margin:0;letter-spacing:.01em}
+a{color:var(--ink)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{width:min(1040px,100% - 32px);margin:0 auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--on-red);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
+
+header{background:var(--char);border-bottom:6px solid var(--red)}
+.top{display:flex;align-items:center;gap:18px;padding:22px 0 18px}
+.top img{width:84px;height:84px;object-fit:contain;flex:none}
+.eyebrow{font-size:.82rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(2.6rem,6vw,4.2rem);color:var(--ink)}
+h1 span{color:var(--red)}
+.lede{background:var(--red);color:var(--on-red)}
+.lede .wrap{padding:20px 0}
+.lede p{margin:0;font-size:1.15rem;font-weight:500;max-width:62ch}
+.lede .meta{margin-top:8px;font-size:.92rem;font-weight:500}
+
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.stat{background:var(--char2);padding:16px 12px;text-align:center}
+.stat b{display:block;font:700 2.6rem/1 var(--head);color:var(--red)}
+.stat span{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+section{padding:34px 0 8px}
+section h2{font-size:2.5rem;color:var(--red);margin-bottom:6px}
+.bar{display:block;width:56px;height:6px;background:var(--red);margin-bottom:10px}
+.lead{color:var(--muted);max-width:68ch;margin:0 0 18px}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--char2);border:1px solid var(--line);border-top:5px solid var(--red);padding:20px 22px}
+.card h3{font-size:2rem}
+.tag{display:inline-block;margin:6px 0 10px;padding:2px 10px;border:1px solid var(--red);color:var(--ink);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.card dl{margin:12px 0 0}
+.card dt{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-top:12px}
+.card dd{margin:2px 0 0}
+.arrow{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0 0;color:var(--muted);font-size:.95rem}
+.arrow b{font:700 1.7rem/1 var(--head);color:var(--ink)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;background:var(--char2);border:1px solid var(--line);padding:18px 20px 18px;position:relative}
+.steps li+li{border-left:0}
+.steps li::before{content:counter(s);font:700 2.4rem/1 var(--head);color:var(--red);display:block;margin-bottom:4px}
+.steps h3{font-size:1.6rem;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:.95rem}
+
+.list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.list li{padding-left:18px;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--red)}
+.list b{color:var(--ink)}
+
+.table{width:100%;border-collapse:collapse;margin-top:6px;font-size:.95rem}
+.table th,.table td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.table th{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.note{margin:14px 0 0;color:var(--muted);font-size:.9rem;max-width:80ch}
+
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 0}
+.btn{display:inline-block;padding:10px 16px;background:var(--btn);color:var(--on-red);font-weight:700;text-decoration:none;border:2px solid var(--btn);border-radius:3px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--ink)}
+
+footer{margin-top:40px;border-top:6px solid var(--red);padding:20px 0 30px;color:var(--muted);font-size:.92rem}
+footer .row{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (max-width:800px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats .stat:last-child{grid-column:1/-1}
+  .cols,.list{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li+li{border-left:1px solid var(--line);border-top:0}
+  .top img{width:64px;height:64px}
+}
+@media print{
+  :root{--char:#fff;--char2:#fff;--line:#bbb;--ink:#111;--muted:#444}
+  body{font-size:10.5pt;line-height:1.4}
+  .lede{background:#fff;color:#111;border-bottom:3px solid var(--red)}
+  .links,.skip{display:none}
+  section{padding:14px 0 4px;break-inside:avoid}
+  .card,.steps li{break-inside:avoid}
+  .stat b,section h2,.card dt,.steps li::before{color:#B52A10}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap top">
+    <img src="chs-rop-cte-logo.png" alt="Coalinga High School ROP/CTE seal">
+    <div>
+      <div class="eyebrow">Coalinga High School &middot; ROP / CTE</div>
+      <h1>Technology Pathway <span>at a Glance</span></h1>
+    </div>
+  </div>
+  <div class="lede">
+    <div class="wrap">
+      <p>A two-course Career Technical Education pathway that takes students from digital foundations and hand-coded web pages to JavaScript, version control, and responsible AI-assisted development.</p>
+      <p class="meta">Web Page Design &rarr; Web Application Development &middot; Instructor: Manuel Chagoyan &middot; North Wing, Room 308 &middot; 2026&ndash;2027</p>
+    </div>
+  </div>
+  <div class="stats" aria-label="Pathway by the numbers">
+    <div class="stat"><b>2</b><span>Courses</span></div>
+    <div class="stat"><b>22</b><span>Career Skills Challenge top-three finishes</span></div>
+    <div class="stat"><b>15</b><span>Student labs &amp; games</span></div>
+    <div class="stat"><b>6</b><span>Teacher-built classroom tools</span></div>
+    <div class="stat"><b>262</b><span>CTE standards referenced</span></div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <section aria-labelledby="courses">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="courses">The Two Courses</h2>
+    <p class="lead">Designed for students with a wide range of computer experience. No prior coding is assumed. The second course builds directly on the first.</p>
+    <div class="cols">
+      <article class="card">
+        <h3>Web Page Design</h3>
+        <span class="tag">Introductory</span>
+        <p>Internet and web concepts, file management, keyboarding, the web design process, color theory, graphics, HTML, CSS, hyperlinks, tables, and responsive web design.</p>
+        <dl>
+          <dt>Tools</dt>
+          <dd>Visual Studio Code, Adobe Photoshop, Typing.com, MyCareerTech</dd>
+          <dt>Culminating work</dt>
+          <dd>A career portfolio website, published to the school network, plus a career-preparation unit (resume, cover letter, interview practice).</dd>
+        </dl>
+      </article>
+      <article class="card">
+        <h3>Web Application Development</h3>
+        <span class="tag">Advanced Capstone</span>
+        <p>Terminal, Git, and GitHub; advanced Photoshop and CSS; foundational JavaScript, Canvas, and interactive design; AI-assisted coding; individual and team projects; Career Skills Challenge preparation.</p>
+        <dl>
+          <dt>Tools</dt>
+          <dd>VS Code, Terminal, Git and GitHub, Netlify or Cloudflare, Photoshop, approved AI tools</dd>
+          <dt>Culminating work</dt>
+          <dd>An online career portfolio and an AI-assisted application that addresses a local business or community need.</dd>
+        </dl>
+      </article>
+    </div>
+    <p class="arrow"><b>Year 1</b> Web Page Design &rarr; <b>Year 2</b> Web Application Development</p>
+  </section>
+
+  <section aria-labelledby="arc">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="arc">How Skills Progress</h2>
+    <p class="lead">Students learn to do the work by hand first, so they can judge, direct, and fix what AI tools produce.</p>
+    <ol class="steps">
+      <li><h3>Build the foundation</h3><p>Typing, file and folder organization, visual design, then hand-coded HTML and CSS. Students write the code themselves.</p></li>
+      <li><h3>Work like a developer</h3><p>Terminal, Git and GitHub, JavaScript with visible results, Canvas graphics, and publishing live to the web.</p></li>
+      <li><h3>Direct and evaluate AI</h3><p>Students break a problem into requirements, prompt AI tools, then test, debug, and modify the result for a real business or community need.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="how">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="how">How the Classes Run</h2>
+    <ul class="list">
+      <li><b>Industry software, not simulations.</b> Students use the same tools professionals use: VS Code, Git and GitHub, Photoshop, Netlify, and approved AI tools.</li>
+      <li><b>No textbook.</b> Learning comes from demonstrations, hands-on practice, Google Classroom, and teacher-built interactive labs and apps.</li>
+      <li><b>Career readiness built in.</b> Both courses include keyboarding, professional habits, MyCareerTech lessons, resumes, and portfolio review.</li>
+      <li><b>Resubmission is allowed.</b> Students can resubmit work multiple times for an improved grade.</li>
+      <li><b>Responsible AI.</b> AI output is not assumed correct. Students are responsible for reviewing, testing, and modifying it and for understanding the work they submit.</li>
+      <li><b>Online publishing is permissioned.</b> Students publish online only with a signed Online Publishing/AI Permission Form on file.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="standards">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="standards">Standards Alignment</h2>
+    <p class="lead">Every unit in each course outline lists the California CTE standards it connects to.</p>
+    <table class="table">
+      <thead><tr><th scope="col">Sector</th><th scope="col">Documents referenced</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Information and Communication Technologies</th><td>Anchor Standards and the Software and Systems Development pathway</td></tr>
+        <tr><th scope="row">Arts, Media, and Entertainment</th><td>Anchor Standards and the Design, Visual, and Media Arts pathway</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Source: California Department of Education CTE Model Curriculum Standards (2013). Alignment identifies instructional connections, including partial coverage, and does not certify mastery of every component. The searchable standards are on the hub.</p>
+  </section>
+
+  <section aria-labelledby="results">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="results">Results</h2>
+    <p class="lead"><b>Career Skills Challenge:</b> 22 top-three finishes, including 8 first-place finishes, across the 2012&ndash;2013 through 2025&ndash;2026 competition years. Most recently, 1st, 2nd, and 3rd place in 2025&ndash;2026. The pathway did not compete in 2019&ndash;2022, or the competition was cancelled.</p>
+  </section>
+
+  <section aria-labelledby="evolution">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="evolution">How the Pathway Has Evolved</h2>
+    <table class="table">
+      <thead><tr><th scope="col">Period</th><th scope="col">Structure</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Original</th><td>Three courses: Intro to Computer Science, Web Page Design, Web Application Development.</td></tr>
+        <tr><th scope="row">2025&ndash;2026</th><td>Consolidated to two courses, with foundational computer science concepts folded in. Interactive labs and teacher tools added.</td></tr>
+        <tr><th scope="row">2026&ndash;2027</th><td>Web Application Development returns to foundational JavaScript, and AI-assisted development and responsible AI use become part of both courses.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Prior-year course outlines are kept on the hub as a record of how the curriculum has changed.</p>
+  </section>
+
+  <section aria-labelledby="docs">
+    <span class="bar" aria-hidden="true"></span>
+    <h2 id="docs">Documents &amp; Evidence</h2>
+    <p class="lead">Course outlines are planning documents. Day-to-day instruction is documented in Google Classroom.</p>
+    <div class="links">
+      <a class="btn" href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf">Syllabus 2026&ndash;2027 (PDF)</a>
+      <a class="btn ghost" href="CHS-Technology-Pathway-Flyer.pdf">Pathway flyer (PDF)</a>
+      <a class="btn ghost" href="index.html#outlines">Course outlines</a>
+      <a class="btn ghost" href="index.html#standards">Standards</a>
+      <a class="btn ghost" href="index.html#labs">Student labs</a>
+      <a class="btn ghost" href="index.html#teacher">Teacher tools</a>
+      <a class="btn ghost" href="about.html">About the instructor</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>CHS Technology Pathway &middot; Coalinga High School &middot; <a href="index.html">Full hub</a></span>
+    <span>Questions: <a href="mailto:mchagoyan@chusd.org">mchagoyan@chusd.org</a></span>
+  </div>
+</footer>
+</body>
+</html>

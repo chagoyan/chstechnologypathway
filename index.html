@@ -6,6 +6,7 @@
 <title>CHS Technology Pathway Hub</title>
 <meta name="description" content="Course outlines, student labs and teacher tools for the Coalinga High School CTE Technology Pathway.">
 <meta name="theme-color" content="#E8391A">
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:image" content="https://chstechnologypathway.netlify.app/logo.png">
@@ -141,6 +142,8 @@ footer{background:#0D0D0D;border-top:6px solid var(--red);padding:30px 0 40px;co
 @media(max-width:559px){.foot-seal{flex-direction:column;text-align:center}footer .chevrons{margin-left:auto;margin-right:auto}}
 footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;letter-spacing:.02em;display:block}
 
+.foot-link{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+.foot-link:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 /* TO-DO PANEL */
 .todo{width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;margin:auto;padding:0;color-scheme:dark;background:#121212;color:var(--ink);border:1px solid var(--line);border-top:5px solid var(--red);border-radius:4px}
 .todo::backdrop{background:rgba(0,0,0,.72)}
@@ -177,13 +180,13 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     <p>Every course outline, student lab and teacher tool in one place.</p>
     <div class="hero-actions">
       <a class="btn" href="CHS-Technology-Pathway-Syllabus-2026-2027.pdf" download><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0l-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Syllabus 2026–2027</a>
+      <a class="btn ghost" href="program-at-a-glance.html">Program at a glance</a>
       <a class="btn ghost" href="#teacher">Teacher tools</a>
       <a class="btn ghost" href="#flyer">Pathway flyer</a>
       <a class="btn ghost" href="#outlines">Course outlines</a>
       <a class="btn ghost" href="#labs">Student labs</a>
       <a class="btn ghost" href="#standards">Standards</a>
       <a class="btn ghost" href="about.html">About</a>
-      <button class="btn ghost" type="button" id="todoBtn" aria-haspopup="dialog" aria-controls="todo">To-do</button>
     </div>
     <span class="chevrons dark" aria-hidden="true"></span>
   </div>
@@ -279,7 +282,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       <img class="seal" src="chs-rop-cte-logo.png" width="84" height="84" alt="Coalinga High School ROP/CTE seal">
       <div>
         <b>CHS Technology Pathway</b>
-        Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="about.html">About</a>
+        Coalinga High School &middot; Built by Manuel Chagoyan &middot; <a href="about.html">About</a> &middot; <button class="foot-link" type="button" id="todoBtn" aria-haspopup="dialog" aria-controls="todo">To-do list</button>
       </div>
     </div>
     <span class="chevrons" aria-hidden="true"></span>
@@ -309,15 +312,15 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     {n:"Typing Exploration", u:"https://typingexploration.lovable.app", d:"Reach mechanics from home row to bottom row, with finger placement.", c:"Keyboarding", tags:["finger placement","reaches"]},
     {n:"Typing Voyage", u:"https://typingvoyage.lovable.app", d:"Arcade-style space combat powered by your typing.", c:"Keyboarding", tags:["arcade","space"]},
     {n:"Typing Conquest", u:"https://typingconquest.lovable.app", d:"Capitalization and Shift-key practice on a Mars mission.", c:"Keyboarding", tags:["shift key","capitals"]},
-    {n:"Typing Quest 2", u:"https://typingquest2.lovable.app", d:"Home row and progressive touch-typing mastery.", c:"Keyboarding", tags:["home row","levels"]},
+    {n:"Typing Quest 2", u:"https://typingquest2.lovable.app", d:"Home row and progressive touch-typing proficiency.", c:"Keyboarding", tags:["home row","levels"]},
     {n:"Typing Race Arena", u:"https://typingracearena.lovable.app", d:"Real-time multiplayer street-racing typing competitions.", c:"Keyboarding", tags:["multiplayer","speed","WPM"]},
     {n:"Terminal Quest Lite", u:"https://terminal-quest-lite.lovable.app", d:"Beginner command-line navigation and file manipulation.", c:"Terminal & CLI", tags:["cd","ls","beginner"]},
-    {n:"Terminal Quest – Advanced", u:"https://shellquest.lovable.app", d:"Interactive terminal challenges at an advanced level.", c:"Terminal & CLI", tags:["shell","advanced"]},
+    {n:"Terminal Quest – Advanced", u:"https://terminal-quest-advanced.lovable.app", d:"Interactive terminal challenges at an advanced level.", c:"Terminal & CLI", tags:["shell","advanced"]},
     {n:"Terminal Forensics", u:"https://terminalforensics.lovable.app", d:"Command-line file and folder navigation challenges.", c:"Terminal & CLI", tags:["forensics","navigation"]},
     {n:"Terminal2047", u:"https://terminal2047.lovable.app", d:"A cyber workstation network simulation.", c:"Terminal & CLI", tags:["simulation","network"]},
     {n:"Terminal2047 Containment", u:"https://terminal2047containment.lovable.app", d:"Investigate a compromised network node.", c:"Terminal & CLI", tags:["investigation","security"]},
-    {n:"Route 404", u:"https://pathrout404.lovable.app", d:"Relative vs. absolute file paths and directory trees.", c:"File Systems & Git", tags:["paths","directories"]},
-    {n:"CHS Space Explorer", u:"https://chsspaceexplorer.lovable.app", d:"A spaceflight arcade challenge.", c:"File Systems & Git", tags:["arcade","space"]},
+    {n:"Route 404", u:"https://pathroute404.lovable.app", d:"Relative vs. absolute file paths and directory trees.", c:"File Systems & Git", tags:["paths","directories"]},
+    {n:"CHS Space Explorer", u:"https://chsspaceexplorer.lovable.app", d:"A spaceflight arcade challenge. The prequel to CHS Space Adventure.", c:"File Systems & Git", tags:["arcade","space"]},
     {n:"CHS Space Adventure", u:"https://chsspaceadventure.lovable.app", d:"Learn Git version control through mission progression.", c:"File Systems & Git", tags:["git","missions"]},
     {n:"Pawsitive Pet Portal", u:"https://petstorechs.lovable.app", d:"Capstone web development demo built with HTML and CSS.", c:"Web Development", tags:["HTML","CSS","capstone"]}
   ];
@@ -447,7 +450,8 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
 
   function show(data, modified){
     body.textContent = "";
-    var updated = when(data.last_updated) || when(modified);
+    // Drive's save time is always right; last_updated is typed by whoever wrote the file.
+    var updated = when(modified) || when(data.last_updated);
     if(updated){
       var p = document.createElement("p"); p.className = "todo-updated"; p.textContent = "Updated "+updated;
       body.appendChild(p);

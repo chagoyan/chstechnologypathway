@@ -1,0 +1,5 @@
+# Crawlers may read every page so they can see the noindex tags and the
+# X-Robots-Tag header (set in netlify.toml). Those keep the site out of
+# search results; blocking crawling here would hide them.
+User-agent: *
+Disallow:
