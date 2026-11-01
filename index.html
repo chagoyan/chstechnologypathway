@@ -317,7 +317,8 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     {n:"GCMonitor", u:"https://gcmonitor.netlify.app/", d:"Track student progress across a class and send missing-assignment emails straight from the roster.", c:"Classroom Management", tags:["progress","missing work","email"], st:"Live", si:true},
     {n:"N308Pulse", u:"https://n308pulse.netlify.app/index.html", d:"Live classroom signals. Students tap Need Help, Need More Time or Ready while you watch a real-time dashboard.", c:"Classroom Management", tags:["live","signals","Classroom"], st:"Live", si:true},
     {n:"GCType", u:"https://gctype.netlify.app/", d:"Auto-grades Typing.com assignments in Google Classroom using one clear rule. CSVs are processed in your browser.", c:"Planning & Grading", tags:["typing","grading","CSV"], st:"Live", si:true},
-    {n:"CHS Bell Tracker", u:"https://chsbt.netlify.app/", d:"Today's bell schedule with a live countdown and a cleanup alarm before each bell that teachers can set from off to 15 minutes.", c:"School Operations", tags:["schedule","alarm","countdown"], st:"Live", si:false}
+    {n:"CHS Bell Tracker", u:"https://chsbt.netlify.app/", d:"Today's bell schedule with a live countdown and a cleanup alarm before each bell that teachers can set from off to 15 minutes.", c:"School Operations", tags:["schedule","alarm","countdown"], st:"Live", si:false},
+    {n:"CHS Field Trip Tracker", u:"https://chsftt.netlify.app/", d:"Offline field trip attendance: import a roster, check students on and off the bus, and flag anyone without a permission slip. Student data stays on the device.", c:"School Operations", tags:["field trips","attendance","offline"], st:"Live"}
   ];
   var LABS = [
     {n:"Typing Quest", u:"https://typingquest.lovable.app", d:"Skill-based keyboard levels that build accuracy.", c:"Keyboarding", tags:["levels","accuracy"]},
@@ -326,12 +327,15 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
     {n:"Typing Conquest", u:"https://typingconquest.lovable.app", d:"Capitalization and Shift-key practice on a Mars mission.", c:"Keyboarding", tags:["shift key","capitals"]},
     {n:"Typing Quest 2", u:"https://typingquest2.lovable.app", d:"Home row and progressive touch-typing proficiency.", c:"Keyboarding", tags:["home row","levels"]},
     {n:"Typing Race Arena", u:"https://typingracearena.lovable.app", d:"Real-time multiplayer street-racing typing competitions.", c:"Keyboarding", tags:["multiplayer","speed","WPM"]},
+    {n:"Toadmail", u:"https://toadmail.lovable.app", d:"Seven quick lessons, three real-world exercises and a full practice inbox for writing emails that teachers, scholarship committees and bosses want to read.", c:"Digital Literacy", tags:["email","etiquette","writing"]},
     {n:"Terminal Quest Lite", u:"https://terminal-quest-lite.lovable.app", d:"Beginner command-line navigation and file manipulation.", c:"Terminal & CLI", tags:["cd","ls","beginner"]},
     {n:"Terminal Quest – Advanced", u:"https://terminal-quest-advanced.lovable.app", d:"Interactive terminal challenges at an advanced level.", c:"Terminal & CLI", tags:["shell","advanced"]},
     {n:"Terminal Forensics", u:"https://terminalforensics.lovable.app", d:"Command-line file and folder navigation challenges.", c:"Terminal & CLI", tags:["forensics","navigation"]},
     {n:"Terminal2047", u:"https://terminal2047.lovable.app", d:"A cyber workstation network simulation.", c:"Terminal & CLI", tags:["simulation","network"]},
     {n:"Terminal2047 Containment", u:"https://terminal2047containment.lovable.app", d:"Investigate a compromised network node.", c:"Terminal & CLI", tags:["investigation","security"]},
+    {n:"CHS Absolute Path", u:"https://chsabsolutepath.netlify.app/", d:"A practice website of sample files for writing absolute paths: the full web addresses of images and pages. Use it before Route 404.", c:"File Systems & Git", tags:["absolute paths","URLs","practice"]},
     {n:"Route 404", u:"https://pathroute404.lovable.app", d:"Relative vs. absolute file paths and directory trees.", c:"File Systems & Git", tags:["paths","directories"]},
+    {n:"Shell Route", u:"https://shellroute.lovable.app", d:"Drive a rover through a Mac-style file system by typing real shell commands: cd, pwd, ls, cat, mkdir and touch. The terminal version of Route 404.", c:"Terminal & CLI", tags:["cd","ls","paths","terminal"]},
     {n:"CHS Space Explorer", u:"https://chsspaceexplorer.lovable.app", d:"A spaceflight arcade challenge. The prequel to CHS Space Adventure.", c:"File Systems & Git", tags:["arcade","space"]},
     {n:"CHS Space Adventure", u:"https://chsspaceadventure.lovable.app", d:"Learn Git version control through mission progression.", c:"File Systems & Git", tags:["git","missions"]},
     {n:"Pawsitive Pet Portal", u:"https://petstorechs.lovable.app", d:"Capstone web development demo built with HTML and CSS.", c:"Web Development", tags:["HTML","CSS","capstone"]}
@@ -353,7 +357,7 @@ footer b{font:700 1.6rem var(--head);color:var(--red);text-transform:uppercase;l
       {n:"ICS Course Outline", u:"https://courseoutlines.netlify.app/ics20232024", p:"ICS-Course-Outline-2023-2024.pdf", d:"Intro to Computer Science", s:"Previous"}]}
   ];
 
-  var CATS = ["All","Planning & Grading","Classroom Management","School Operations","Keyboarding","Terminal & CLI","File Systems & Git","Web Development"];
+  var CATS = ["All","Planning & Grading","Classroom Management","School Operations","Keyboarding","Digital Literacy","Terminal & CLI","File Systems & Git","Web Development"];
   var state = {cat:"All", q:""};
   var $ = function(id){return document.getElementById(id)};
   function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]})}
